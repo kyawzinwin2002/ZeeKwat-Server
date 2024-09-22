@@ -15,7 +15,7 @@ Route::prefix('v1')->group(function () {
     Route::post('/register', [RegisterController::class, 'register']);
     Route::post('/login', [LoginController::class, 'login']);
 
-    Route::group(function () {
+    Route::middleware('auth:sanctum')->group(function () {
         Route::get('/posts', [PostController::class, 'index']);
         Route::get('/posts/{post}', [PostController::class, 'show']);
         Route::post('/posts', [PostController::class, 'create']);
@@ -27,6 +27,6 @@ Route::prefix('v1')->group(function () {
         Route::post('/comments', [CommentController::class, 'create']);
         Route::put('/comments/{comment}', [CommentController::class, 'update']);
         Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
-    })->middleware('auth:sanctum');
+    });
 });
 
