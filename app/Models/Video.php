@@ -9,6 +9,8 @@ class Video extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['video_path'];
+
     public function videoable()
     {
         return $this->morphTo();
