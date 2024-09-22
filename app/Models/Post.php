@@ -11,7 +11,16 @@ class Post extends Model
 
     protected $fillable = [
         'text',
-        'image',
         'user_id'
     ];
+
+    public function video()
+    {
+        return $this->morphOne(Video::class, 'videoable');
+    }
+
+    public function photo()
+    {
+        return $this->morphOne(Photo::class, 'photoable');
+    }
 }

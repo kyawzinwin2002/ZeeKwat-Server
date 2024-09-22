@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->text('text');
-            $table->foreignId('post_id');
-            $table->foreignId('user_id');
+            $table->string('video_path');
+            $table->integer('videoable_id');
+            $table->string('videoable_type');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('videos');
     }
 };
