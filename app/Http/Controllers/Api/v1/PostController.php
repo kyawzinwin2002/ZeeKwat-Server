@@ -40,7 +40,7 @@ class PostController extends Controller
         }
 
         if($request->video_path){
-            $post->photo()->create([
+            $post->video()->create([
                 'video_path' => $request->video_path
             ]);
         }
@@ -57,7 +57,7 @@ class PostController extends Controller
         }
 
         if($request->video_path){
-            $post->photo()->update([
+            $post->video()->update([
                 'video_path' => $request->video_path
             ]);
         }
